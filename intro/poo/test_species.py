@@ -1,6 +1,6 @@
 import unittest
 
-from Intro.poo.species.Ogro import Ogro
+from species.Ogro import Ogro
 
 from species.Elfo import Elfo
 from species.Imperial import Imperial

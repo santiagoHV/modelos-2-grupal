@@ -1,4 +1,4 @@
-from Intro.poo.Specie import Specie
+from intro.poo.Specie import Specie
 
 
 class Ogro(Specie):
