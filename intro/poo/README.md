@@ -4,7 +4,9 @@ Aplicación hecha en python3.8 evidenciando los principios de diseño de la prog
 a objetos.
 </p>
 <p>
-El programa simula...
+El programa simula un pequeño selector de personajes fantásticos con una funcionalidad de combate
+sencilla. Cuenta con 5 especies con varios atributos personalizables y algunos característicos de
+la especie definidos por defecto.
 </p>
 <h4>Programa hecho por:</h4>
 <ul>
