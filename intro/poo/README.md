@@ -17,6 +17,7 @@ Se aplicaron los siguientes principios de programación:
     <li>KISS</li>
     <li>Sustitución por Liskov</li>
     <li>Principio Abierto/Cerrado</li>
+    <li>Responsabilidad unica</li>
 </ul>
 
 <h4>Programa hecho por:</h4>
