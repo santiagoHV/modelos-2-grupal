@@ -1,17 +1,9 @@
-<<<<<<< HEAD:intro/poo/__init__.py
 from intro.poo.species.Elfo import Elfo
 from intro.poo.species.Breton import Breton
 from intro.poo.species.Imperial import Imperial
 from intro.poo.species.Ogro import Ogro
 from intro.poo.species.Argoniano import Argoniano
-=======
-from Intro.poo.species.Elfo import Elfo
-from Intro.poo.species.Breton import Breton
-from Intro.poo.species.Imperial import Imperial
-from Intro.poo.species.Ogro import Ogro
-from Intro.poo.species.Argoniano import Argoniano
 from os import system
->>>>>>> 55886a413ba001c59ea8dbab620194a7c3ffc9d4:Intro/poo/__init__.py
 
 def menu_general():
     print('Seleccione una opcion:')
