@@ -1,17 +1,11 @@
-<<<<<<< HEAD:intro/poo/__init__.py
+from os import system
+
 from intro.poo.species.Elfo import Elfo
 from intro.poo.species.Breton import Breton
 from intro.poo.species.Imperial import Imperial
 from intro.poo.species.Ogro import Ogro
 from intro.poo.species.Argoniano import Argoniano
-=======
-from Intro.poo.species.Elfo import Elfo
-from Intro.poo.species.Breton import Breton
-from Intro.poo.species.Imperial import Imperial
-from Intro.poo.species.Ogro import Ogro
-from Intro.poo.species.Argoniano import Argoniano
-from os import system
->>>>>>> 55886a413ba001c59ea8dbab620194a7c3ffc9d4:Intro/poo/__init__.py
+
 
 def menu_general():
     print('Seleccione una opcion:')
@@ -32,7 +26,7 @@ def crear_personaje():
     especie = int(input('Ingrese su elección: '))
     nombre = input('Ingrese el nombre: ')
     edad = int(input('Ingrese su edad: '))
-    altura = int(input('Ingrese su altura:'))
+    altura = float(input('Ingrese su altura:'))
     peso = int(input('Ingrese su peso: '))
 
     if especie == 1:
@@ -54,27 +48,33 @@ if __name__ == '__main__':
 
     while optiong != 0:
         optiong = menu_general()
+
         if optiong == 1:
             personaje_nuevo = crear_personaje()
             personajes_creados.append(personaje_nuevo)
             print('El numero del personaje creado es: ' + str(len(personajes_creados)))
             input("PRESIONA ENTER PARA CONTINUAR.")
+            print('-------------------------------')
             system('cls')
 
         elif optiong == 2:
             number = 0
             print('Personajes disponibles: ')
+
             for personaje in personajes_creados:
                 number+=1
                 print(str(number) + '. ' + personaje.name.title())
             personaje_select = int(input('Ingrese el numero del personaje que desea administrar: '))
+
             if (personaje_select > len(personajes_creados)):
                 print('Ingrese una posicion que exista imbecil')
             else:
                 personaje_activo = personajes_creados[personaje_select-1]
                 print('Personaje activo: ' + personaje_activo.name)
             input("PRESIONA ENTER PARA CONTINUAR.")
+            print('-------------------------------')
             system('cls')
+
         elif optiong == 3:
             atacara = int(input('Ingresa el numero del personaje que deseas atacar: '))
             personajes_creados[atacara-1].is_attacked(personaje_activo.attack)
