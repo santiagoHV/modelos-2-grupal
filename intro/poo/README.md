@@ -8,6 +8,17 @@ El programa simula un pequeño selector de personajes fantásticos con una funci
 sencilla. Cuenta con 5 especies con varios atributos personalizables y algunos característicos de
 la especie definidos por defecto.
 </p>
+
+<p>
+Se aplicaron los siguientes principios de programación:
+</p>
+
+<ul>
+    <li>KISS</li>
+    <li>Sustitución por Liskov</li>
+    <li>Principio Abierto/Cerrado</li>
+</ul>
+
 <h4>Programa hecho por:</h4>
 <ul>
     <li>Juan David Hurtado Peñaloza - 20191020032</li>
