@@ -2,3 +2,7 @@ venv
 .idea
 **/**/.pytest_cache
 .vscode
+
+intro/poo/__pycache__/
+
+intro/poo/species/__pycache__/
