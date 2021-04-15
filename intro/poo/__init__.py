@@ -63,7 +63,7 @@ def menu_opcion_2():
         number += 1
         print(str(number) + '. ' + personaje.name.title())
     personaje_select = int(input('Ingrese el numero del personaje que desea administrar: '))
-    if (personaje_select > len(personajes_creados)):
+    if personaje_select > len(personajes_creados):
         print('Ingrese una posicion que exista imbecil')
     else:
         personaje_activo = personajes_creados[personaje_select - 1]
