@@ -6,14 +6,20 @@ from intro.poo.species.Imperial import Imperial
 from intro.poo.species.Ogro import Ogro
 from intro.poo.species.Argoniano import Argoniano
 
+personajes_creados = [Argoniano('fUmaratto', 180, 200, 19)]
+personaje_activo = personajes_creados[0]
+
 
 def menu_general():
     print('Seleccione una opcion:')
     print('1. Crear nuevo personaje')
     print('2. Seleccionar personaje activo')
     print('3. Atacar otro personaje')
-    opt = int(input('Opcion: '))
+    print('4. Añadir aliado')
+    print('0. Salir')
+    opt = int(input('(Personaje activo: ' + personaje_activo.name.title() + ') \nOpcion: '))
     return opt
+
 
 def crear_personaje():
     print('¿Que especie desea crear?')
@@ -41,44 +47,49 @@ def crear_personaje():
         return Argoniano(nombre, peso, altura, edad)
 
 
-if __name__ == '__main__':
-    personajes_creados = [Argoniano('fUmaratto', 180, 200, 19)]
-    personaje_activo = None
-    optiong = 22
+def menu_opcion_1():
+    personaje_nuevo = crear_personaje()
+    personajes_creados.append(personaje_nuevo)
+    print('El numero del personaje creado es: ' + str(len(personajes_creados)))
+    input("PRESIONA ENTER PARA CONTINUAR.")
+    print('-------------------------------')
+    system('cls')
 
+
+def menu_opcion_2():
+    number = 0
+    print('Personajes disponibles: ')
+    for personaje in personajes_creados:
+        number += 1
+        print(str(number) + '. ' + personaje.name.title())
+    personaje_select = int(input('Ingrese el numero del personaje que desea administrar: '))
+    if (personaje_select > len(personajes_creados)):
+        print('Ingrese una posicion que exista imbecil')
+    else:
+        personaje_activo = personajes_creados[personaje_select - 1]
+        print('Personaje activo: ' + personaje_activo.name)
+    input("PRESIONA ENTER PARA CONTINUAR.")
+    print('-------------------------------')
+    system('cls')
+
+
+def menu_opcion_3():
+    atacara = int(input('Ingresa el numero del personaje que deseas atacar: '))
+    personajes_creados[atacara - 1].is_attacked(personaje_activo.attack)
+    print('Vida restante: ' + str(personajes_creados[atacara - 1].live))
+
+
+def menu_opcion_4():
+    pass
+
+
+if __name__ == '__main__':
+    optiong = 5
     while optiong != 0:
         optiong = menu_general()
-
         if optiong == 1:
-            personaje_nuevo = crear_personaje()
-            personajes_creados.append(personaje_nuevo)
-            print('El numero del personaje creado es: ' + str(len(personajes_creados)))
-            input("PRESIONA ENTER PARA CONTINUAR.")
-            print('-------------------------------')
-            system('cls')
-
+            menu_opcion_1()
         elif optiong == 2:
-            number = 0
-            print('Personajes disponibles: ')
-
-            for personaje in personajes_creados:
-                number+=1
-                print(str(number) + '. ' + personaje.name.title())
-            personaje_select = int(input('Ingrese el numero del personaje que desea administrar: '))
-
-            if (personaje_select > len(personajes_creados)):
-                print('Ingrese una posicion que exista imbecil')
-            else:
-                personaje_activo = personajes_creados[personaje_select-1]
-                print('Personaje activo: ' + personaje_activo.name)
-            input("PRESIONA ENTER PARA CONTINUAR.")
-            print('-------------------------------')
-            system('cls')
-
+            menu_opcion_2()
         elif optiong == 3:
-            atacara = int(input('Ingresa el numero del personaje que deseas atacar: '))
-            personajes_creados[atacara-1].is_attacked(personaje_activo.attack)
-            print('Vida restante: ' + str(personajes_creados[atacara-1].live))
-
-
-
+            menu_opcion_3()
