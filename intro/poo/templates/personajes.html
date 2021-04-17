@@ -1,0 +1,58 @@
+{% extends "navbar.html" %}
+{% block content %}
+    <div class="card-carousel personajes">
+        {% for foo in personajes %}
+            <div class="my-card">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"
+                            style="font-weight: bold; font-size: 30px">{{ foo.name.title() }}</h5>
+                        {% if foo.obtain_specie() == 'Argoniano' %}
+                            <img src="{{ url_for('static', filename='Argoniano.png') }}" width="100%" height="200px"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        {% if foo.obtain_specie() == 'Breton' %}
+                            <img src="{{ url_for('static', filename='Breton.png') }}" width="100%" height="200px"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        {% if foo.obtain_specie() == 'Imperial' %}
+                            <img src="{{ url_for('static', filename='Imperial.png') }}" width="100%" height="200px"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        {% if foo.obtain_specie() == 'Elfo' %}
+                            <img src="{{ url_for('static', filename='Elfo.png') }}" width="100%" height="200px"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        {% if foo.obtain_specie() == 'Ogro' %}
+                            <img src="{{ url_for('static', filename='Orco.png') }}" width="100%" height="200px"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-dark text-light text-center fw-bold">
+                                Type: {{ foo.obtain_specie() }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5"><img
+                                    src="https://img.icons8.com/color/48/000000/like--v3.png" width="10%"/>
+                                Health: {{ foo.live }} HP
+                            </li>
+                            <li class="list-group-item bg-dark text-light fs-5"><img width="30"
+                                                                                     src="https://img.icons8.com/dusk/64/000000/armored-breastplate.png"/>
+                                Size: {{ foo.size }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5"><img
+                                    src="https://img.icons8.com/officel/30/000000/weight-kg.png"/>
+                                Height: {{ foo.height }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5"><img
+                                    src="https://img.icons8.com/color/30/000000/age-timeline.png"/> Age: {{ foo.age }}
+                            </li>
+                            <li class="list-group-item bg-dark text-light fs-5"><img
+                                    src="https://img.icons8.com/office/30/000000/sword.png"/> Attack: {{ foo.attack }}
+                            </li>
+                            <li class="list-group-item bg-dark text-light">
+                                <button class="btn fs-4"> Seleccionar Personaje</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

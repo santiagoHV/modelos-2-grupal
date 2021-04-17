@@ -83,13 +83,15 @@ def menu_opcion_4():
     pass
 
 
+
 if __name__ == '__main__':
-    optiong = 5
-    while optiong != 0:
-        optiong = menu_general()
-        if optiong == 1:
-            menu_opcion_1()
-        elif optiong == 2:
-            menu_opcion_2()
-        elif optiong == 3:
-            menu_opcion_3()
+    pass
+    # optiong = 5
+    # while optiong != 0:
+    #     optiong = menu_general()
+    #     if optiong == 1:
+    #         menu_opcion_1()
+    #     elif optiong == 2:
+    #         menu_opcion_2()
+    #     elif optiong == 3:
+    #         menu_opcion_3()
