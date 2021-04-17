@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% block navbar %}
+    <div class="container" style="z-index: 2; position: relative">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/" style="position: absolute"><img class="imglogo"
+                                                                                 src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e0547c2-467a-4b92-a2fd-a014af686793/dail067-5778fe13-d603-43d3-8b6f-e205b8210f17.png/v1/fill/w_1525,h_524,strp/lord_of_the_rings_png_title_by_workfromhomegal_dail067-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD01NTAiLCJwYXRoIjoiXC9mXC8zZTA1NDdjMi00NjdhLTRiOTItYTJmZC1hMDE0YWY2ODY3OTNcL2RhaWwwNjctNTc3OGZlMTMtZDYwMy00M2QzLThiNmYtZTIwNWI4MjEwZjE3LnBuZyIsIndpZHRoIjoiPD0xNjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Ebc6zUPZxqU5ozHWSvWc38lTM2QEHP8br8-iFo32QAc"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item navoptions">    
+                            <a class="nav-link active" aria-current="page" href="/">Personajes</a>
+                        </li>
+                        <li class="nav-item navoptions">
+                            <a class="nav-link" href="/ataque">Al ataque!</a>
+                        </li>
+                        <li class="nav-item navoptions">
+                            <a class="nav-link" href="/creador">Crear Personaje</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </div>
+{% endblock %}
