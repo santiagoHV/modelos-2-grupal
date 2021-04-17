@@ -2,5 +2,6 @@ venv
 .idea
 **/**/.pytest_cache
 .vscode
+<<<<<<< HEAD
 **/**/__pycache__
 **/**/**/__pycache__
