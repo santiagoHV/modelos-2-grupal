@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="image"></div>
-<div class="container-fluid" style="z-index: 2; position: relative">
+<div class="container" style="z-index: 2; position: relative">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="position: absolute"><img class="imglogo"
@@ -38,19 +38,21 @@
     </nav>
     <div class="row justify-content-center overflow-auto personajes">
         {% for foo in personajes %}
-            <div class="col-4">
+            <div class="col-3">
                 <div class="card text-white bg-dark my-4">
                     <div class="card-body">
-                        <h5 class="card-title text-center">{{ foo.name.title() }}</h5>
+                        <h5 class="card-title text-center" style="font-weight: bold">{{ foo.name.title() }}</h5>
                         {% if foo.obtain_specie() == 'Argoniano' %}
                             <img src="https://static.wikia.nocookie.net/elderscrolls/images/2/2e/Online-race-argonian.png/revision/latest?cb=20121028214045"
                                  class="card-img-top" alt="...">
                         {% endif %}
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-dark text-light">Type: {{ foo.obtain_specie() }}</li>
-                            <li class="list-group-item bg-dark text-light">Size: {{ foo.size }}</li>
-                            <li class="list-group-item bg-dark text-light">Height: {{ foo.height }}</li>
-                            <li class="list-group-item bg-dark text-light">Age: {{ foo.age }}</li>
+                            <li class="list-group-item bg-dark text-light text-center fw-bold">Type: {{ foo.obtain_specie() }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5">Live: {{ foo.live }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5">Size: {{ foo.size }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5">Height: {{ foo.height }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5">Age: {{ foo.age }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5">Attack: {{ foo.attack }}</li>
                         </ul>
                     </div>
                 </div>
