@@ -6,7 +6,7 @@ from intro.poo.species.Ogro import Ogro
 from intro.poo.species.Argoniano import Argoniano
 
 app = Flask(__name__)
-personajes_creados = [Argoniano('fUmaratto', 180, 200, 19), Ogro('Hurtado', 180, 200, 19), Argoniano('Santiago', 180, 200, 19), Argoniano('Ebratt', 180, 200, 19)]
+personajes_creados = [Imperial('fUmaratto', 180, 200, 19), Breton('Hurtado', 180, 200, 19), Argoniano('Santiago', 180, 200, 19), Ogro('Ebratt', 180, 200, 19)]
 personaje_activo = personajes_creados[0]
 
 @app.route('/')
