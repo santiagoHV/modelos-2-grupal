@@ -5,18 +5,58 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            {% for foo in personajes%}
-                {{ foo.name }}
-            {% endfor %}
-
+<div id="image"></div>
+<div class="container-fluid" style="z-index: 2; position: relative">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="position: absolute"><img class="imglogo"
+                                                                             src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e0547c2-467a-4b92-a2fd-a014af686793/dail067-5778fe13-d603-43d3-8b6f-e205b8210f17.png/v1/fill/w_1525,h_524,strp/lord_of_the_rings_png_title_by_workfromhomegal_dail067-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD01NTAiLCJwYXRoIjoiXC9mXC8zZTA1NDdjMi00NjdhLTRiOTItYTJmZC1hMDE0YWY2ODY3OTNcL2RhaWwwNjctNTc3OGZlMTMtZDYwMy00M2QzLThiNmYtZTIwNWI4MjEwZjE3LnBuZyIsIndpZHRoIjoiPD0xNjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Ebc6zUPZxqU5ozHWSvWc38lTM2QEHP8br8-iFo32QAc"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item navoptions">
+                        <a class="nav-link active" aria-current="page" href="#">Personajes</a>
+                    </li>
+                    <li class="nav-item navoptions">
+                        <a class="nav-link" href="#">Al ataque!</a>
+                    </li>
+                    <li class="nav-item navoptions">
+                        <a class="nav-link" href="#">Crear Personaje</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
+    <div class="row justify-content-center overflow-auto personajes">
+        {% for foo in personajes %}
+            <div class="col-4">
+                <div class="card text-white bg-dark my-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ foo.name.title() }}</h5>
+                        {% if foo.obtain_specie() == 'Argoniano' %}
+                            <img src="https://static.wikia.nocookie.net/elderscrolls/images/2/2e/Online-race-argonian.png/revision/latest?cb=20121028214045"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-dark text-light">Type: {{ foo.obtain_specie() }}</li>
+                            <li class="list-group-item bg-dark text-light">Size: {{ foo.size }}</li>
+                            <li class="list-group-item bg-dark text-light">Height: {{ foo.height }}</li>
+                            <li class="list-group-item bg-dark text-light">Age: {{ foo.age }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
+</div>
 </body>
 </html>

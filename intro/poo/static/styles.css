@@ -1,5 +1,51 @@
-body{
-    background-color: black;
-    font-size: 50px;
-    color: white;
+#image{
+    background-image: url('https://wallpaper.dog/large/17099777.jpg');
+	text-align: center;
+    background-size: cover;
+    width: 100%;
+	background-repeat: repeat;
+	position: absolute;
+    filter: brightness(0.4);
+    z-index: 1;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.imglogo{
+    width: 200px;
+}
+.navoptions{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.personajes{
+    max-width: 100%;
+    max-height: 85vh;
+    margin-top: 2vh;
+}
+.personajes::-webkit-scrollbar-track {
+    background: #101010;
+    border-radius: 4px;
+}
+.personajes::-webkit-scrollbar-track:hover,
+.personajes::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+.personajes::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.personajes::-webkit-scrollbar-thumb {
+    background: #999999;
+    border-radius: 4px;
+}
+.personajes::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.personajes::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
 }
