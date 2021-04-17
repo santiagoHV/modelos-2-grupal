@@ -14,15 +14,15 @@ personaje_activo = personajes_creados[0]
 
 @app.route('/')
 def personajes():
-    return render_template('personajes.html', personajes=personajes_creados)
+    return render_template('personajes.html', personajes=personajes_creados, optionnav='personajes')
 
 @app.route('/creador')
 def creador():
-    return render_template('creador.html')
+    return render_template('creador.html', optionnav='creador')
 
 @app.route('/ataque')
 def ataque():
-    return render_template('ataque.html', personaje=personaje_activo)
+    return render_template('ataque.html', personaje=personaje_activo, optionnav='ataque')
 
 if __name__ == '__main__':
     app.run(debug=True)
