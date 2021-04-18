@@ -49,12 +49,11 @@
                                 Attack: {{ personajes[i].attack }}
                             </li>
                             <li class="list-group-item bg-dark text-light text-center">
-                                {% if activo==personajes[i]%}
+                                {% if idx == i%}
                                     <button class="btn fs-4 seleccionar disabled" id="{{ i }}"> Personaje Acual</button>
                                 {% else %}
-                                    <button class="btn fs-4 seleccionar" id="{{ i }}"> Seleccionar Personaje {{ i + 1 }}</button>
+                                    <a href="/{{ i + 1 }}"><button class="btn fs-4 seleccionar" id="{{ i }}"> Seleccionar Personaje {{ i + 1 }}</button></a>
                                 {% endif %}
-
                             </li>
                         </ul>
                     </div>
