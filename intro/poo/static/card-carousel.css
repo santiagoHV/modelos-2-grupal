@@ -7,7 +7,7 @@
 
 .card-carousel .my-card {
   height: 35rem;
-  width: 24rem;
+  width: 35rem;
   position: relative;
   z-index: 1;
   -webkit-transform: scale(0.6) translateY(-2rem);
@@ -29,6 +29,7 @@
   bottom: -5rem;
   -webkit-filter: blur(4px);
   filter: blur(4px);
+  display: block;
 }
 
 .card-carousel .my-card.active {
