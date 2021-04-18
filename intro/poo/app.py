@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, request, redirect, url_for
 from intro.poo.species.Elfo import Elfo
 from intro.poo.species.Breton import Breton
 from intro.poo.species.Imperial import Imperial
@@ -13,15 +13,25 @@ personaje_activo = personajes_creados[0]
 
 @app.route('/')
 def personajes():
-    return render_template('personajes.html', personajes=personajes_creados, optionnav='personajes')
+    return render_template('personajes.html', personajes=personajes_creados, optionnav='personajes', activo=personaje_activo)
+
 
 @app.route('/creador')
 def creador():
     return render_template('creador.html', optionnav='creador')
 
+
 @app.route('/ataque')
 def ataque():
     return render_template('ataque.html', personaje=personaje_activo, optionnav='ataque')
+
+
+@app.route('/selected', methods=['POST'])
+def select():
+    id = int(request.json['id'])
+    personaje_activo = personajes_creados[id]
+    return redirect(url_for('personajes'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
