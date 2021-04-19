@@ -1,4 +1,23 @@
 {% extends "navbar.html" %}
-{% block content %}
+{% import 'render_personajes.html' as macros %}
 
+{% block content %}
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Personaje seleccionado</h2>
+                {{ macros.render_personaje(personajes[idx],False,False,idx,idx) }}
+            </div>
+            <div class="col-md-8">
+                <h2>Personajes para atacar</h2>
+                <div class="card-carousel personajes">
+                    {% for personaje in personajes %}
+                        {% if personajes.index(personaje) !=  idx %}
+                            {{ macros.render_personaje(personaje, False, True, personajes.index(personaje), idx) }}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

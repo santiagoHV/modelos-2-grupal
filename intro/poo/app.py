@@ -7,7 +7,7 @@ from intro.poo.species.Argoniano import Argoniano
 
 app = Flask(__name__)
 personajes_creados = [Imperial('fUmaratto', 180, 200, 19), Breton('Hurtado', 180, 200, 19),
-                      Argoniano('Santiago', 180, 200, 19)]
+                      Argoniano('Santiago', 180, 200, 19), Elfo('otrohpta',180,200,50)]
 
 
 @app.route('/<int:idx>')
@@ -22,7 +22,15 @@ def creador(idx):
 
 @app.route('/ataque/<int:idx>')
 def ataque(idx):
-    return render_template('ataque.html', optionnav='ataque',idx = idx)
+    return render_template('ataque.html', optionnav='ataque', personajes=personajes_creados, idx = idx)
+
+
+@app.route('/ataque/<int:id_atk>/<int:id_aed>')
+def atacar_personaje(id_atk, id_aed):
+    print(type(id_aed))
+    personajes_creados[id_aed].is_attacked(personajes_creados[id_atk].attack)
+
+    return redirect(f'/ataque/{id_atk}')
 
 
 @app.route('/selected', methods=['POST'])

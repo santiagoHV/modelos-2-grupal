@@ -46,10 +46,14 @@
                                 Attack: {{ personaje.attack }}
                             </li>
                             <li class="list-group-item bg-dark text-light text-center">
-                                {% if id_selected == index%}
-                                    <button class="btn fs-4 seleccionar disabled" id="{{ index }}"> Personaje Acual</button>
-                                {% else %}
-                                    <a href="/{{ index }}"><button class="btn fs-4 seleccionar" id="{{ index }}"> Seleccionar Personaje {{ index + 1 }}</button></a>
+                                {% if is_attacked %}
+                                    <a href="/ataque/{{ id_selected }}/{{ index }}"><button class="btn fs-4 seleccionar" id="{{ index }}">Atacar</button></a>
+                                {% elif is_selected %}
+                                    {% if id_selected == index%}
+                                        <button class="btn fs-4 seleccionar disabled" id="{{ index }}"> Personaje Acual</button>
+                                    {% else %}
+                                        <a href="/{{ index }}"><button class="btn fs-4 seleccionar" id="{{ index }}"> Seleccionar Personaje {{ index + 1 }}</button></a>
+                                    {% endif %}
                                 {% endif %}
                             </li>
                         </ul>
