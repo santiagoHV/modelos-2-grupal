@@ -2,7 +2,7 @@ from intro.poo.Specie import Specie
 from intro.poo.decorators.character_decorator import CharacterDecorator
 
 
-class armour_decorator(CharacterDecorator):
+class ArmourDecorator(CharacterDecorator):
     def __init__(self, character):
         self.character = character
         self.character.live = self.character.live * 1.1

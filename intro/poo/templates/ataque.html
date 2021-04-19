@@ -7,6 +7,11 @@
             <div class="col-md-4">
                 <h2>Personaje seleccionado</h2>
                 {{ macros.render_personaje(personajes[idx],False,False,idx,idx) }}
+                <div>
+                    <a href="/decorar/martillo/{{ idx }}"><button>Martillo</button></a>
+                    <a href="/decorar/casco/{{ idx }}"><button>Casco</button></a>
+                    <a href="/decorar/armadura/{{ idx }}"><button>Armadura</button></a>
+                </div>
             </div>
             <div class="col-md-8">
                 <h2>Personajes para atacar</h2>

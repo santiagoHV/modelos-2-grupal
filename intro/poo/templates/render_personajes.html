@@ -3,7 +3,7 @@
                 <div class="card text-white bg-dark">
                     <div class="card-body">
                         <h5 class="card-title text-center"
-                            style="font-weight: bold; font-size: 30px">{{ personaje.name.title() }}</h5>
+                            style="font-weight: bold; font-size: 30px">{{ personaje.name }}</h5>
                         {% if personaje.obtain_specie() == 'Argoniano' %}
                             <img src="{{ url_for('static', filename='images/Argoniano.png') }}" height="300vh"
                                  class="card-img-top" alt="...">
@@ -29,7 +29,7 @@
                                 Type: {{ personaje.obtain_specie() }}</li>
                             <li class="list-group-item bg-dark text-light fs-5"><img
                                     src="https://img.icons8.com/color/48/000000/like--v3.png" width="10%"/>
-                                Health: {{ personaje.live }} HP
+                                Health: {{ personaje.live | round(2) }} HP
                             </li>
                             <li class="list-group-item bg-dark text-light fs-5"><img width="30"
                                                                                      src="https://img.icons8.com/dusk/64/000000/armored-breastplate.png"/>
@@ -43,7 +43,7 @@
                             </li>
                             <li class="list-group-item bg-dark text-light fs-5"><img
                                     src="https://img.icons8.com/office/30/000000/sword.png"/>
-                                Attack: {{ personaje.attack }}
+                                Attack: {{ personaje.attack | round(2) }}
                             </li>
                             <li class="list-group-item bg-dark text-light text-center">
                                 {% if is_attacked %}

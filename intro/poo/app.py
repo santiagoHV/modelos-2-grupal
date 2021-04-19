@@ -4,6 +4,9 @@ from intro.poo.species.Breton import Breton
 from intro.poo.species.Imperial import Imperial
 from intro.poo.species.Ogro import Ogro
 from intro.poo.species.Argoniano import Argoniano
+from intro.poo.decorators.armour_decorator import ArmourDecorator
+from intro.poo.decorators.helmet_decorator import HelmetDecorator
+from intro.poo.decorators.hammer_decorator import HammerDecorator
 
 app = Flask(__name__)
 personajes_creados = [Imperial('fUmaratto', 180, 200, 19), Breton('Hurtado', 180, 200, 19),
@@ -27,10 +30,20 @@ def ataque(idx):
 
 @app.route('/ataque/<int:id_atk>/<int:id_aed>')
 def atacar_personaje(id_atk, id_aed):
-    print(type(id_aed))
     personajes_creados[id_aed].is_attacked(personajes_creados[id_atk].attack)
-
     return redirect(f'/ataque/{id_atk}')
+
+
+@app.route('/decorar/<decorador>/<int:id_decorado>')
+def decorar(decorador, id_decorado):
+    if decorador == 'armadura':
+        personajes_creados[id_decorado] = ArmourDecorator(personajes_creados[id_decorado]).character
+    elif decorador == 'martillo':
+        personajes_creados[id_decorado] = HammerDecorator(personajes_creados[id_decorado]).character
+    elif decorador == 'casco':
+        personajes_creados[id_decorado] = HelmetDecorator(personajes_creados[id_decorado]).character
+
+    return redirect(f'/ataque/{id_decorado}')
 
 
 @app.route('/selected', methods=['POST'])
