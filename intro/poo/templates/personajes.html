@@ -1,64 +1,67 @@
 {% extends "navbar.html" %}
+{% import 'render_personajes.html' as macros %}
+
 {% block content %}
     <div class="card-carousel personajes">
-        {% for i in range(personajes|length) %}
-            <div class="my-card">
-                <div class="card text-white bg-dark">
-                    <div class="card-body">
-                        <h5 class="card-title text-center"
-                            style="font-weight: bold; font-size: 30px">{{ personajes[i].name.title() }}</h5>
-                        {% if personajes[i].obtain_specie() == 'Argoniano' %}
-                            <img src="{{ url_for('static', filename='images/Argoniano.png') }}" height="300vh"
-                                 class="card-img-top" alt="...">
-                        {% endif %}
-                        {% if personajes[i].obtain_specie() == 'Breton' %}
-                            <img src="{{ url_for('static', filename='images/Breton.png') }}" height="300vh"
-                                 class="card-img-top" alt="...">
-                        {% endif %}
-                        {% if personajes[i].obtain_specie() == 'Imperial' %}
-                            <img src="{{ url_for('static', filename='images/Imperial.png') }}" height="300vh"
-                                 class="card-img-top" alt="...">
-                        {% endif %}
-                        {% if personajes[i].obtain_specie() == 'Elfo' %}
-                            <img src="{{ url_for('static', filename='images/Elfo.png') }}" height="300vh"
-                                 class="card-img-top" alt="...">
-                        {% endif %}
-                        {% if personajes[i].obtain_specie() == 'Ogro' %}
-                            <img src="{{ url_for('static', filename='images/Orco.png') }}" height="300vh"
-                                 class="card-img-top" alt="...">
-                        {% endif %}
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-dark text-light text-center fw-bold">
-                                Type: {{ personajes[i].obtain_specie() }}</li>
-                            <li class="list-group-item bg-dark text-light fs-5"><img
-                                    src="https://img.icons8.com/color/48/000000/like--v3.png" width="10%"/>
-                                Health: {{ personajes[i].live }} HP
-                            </li>
-                            <li class="list-group-item bg-dark text-light fs-5"><img width="30"
-                                                                                     src="https://img.icons8.com/dusk/64/000000/armored-breastplate.png"/>
-                                Size: {{ personajes[i].size }}</li>
-                            <li class="list-group-item bg-dark text-light fs-5"><img
-                                    src="https://img.icons8.com/officel/30/000000/weight-kg.png"/>
-                                Height: {{ personajes[i].height }}</li>
-                            <li class="list-group-item bg-dark text-light fs-5"><img
-                                    src="https://img.icons8.com/color/30/000000/age-timeline.png"/>
-                                Age: {{ personajes[i].age }}
-                            </li>
-                            <li class="list-group-item bg-dark text-light fs-5"><img
-                                    src="https://img.icons8.com/office/30/000000/sword.png"/>
-                                Attack: {{ personajes[i].attack }}
-                            </li>
-                            <li class="list-group-item bg-dark text-light text-center">
-                                {% if idx == i%}
-                                    <button class="btn fs-4 seleccionar disabled" id="{{ i }}"> Personaje Acual</button>
-                                {% else %}
-                                    <a href="/{{ i }}"><button class="btn fs-4 seleccionar" id="{{ i }}"> Seleccionar Personaje {{ i + 1 }}</button></a>
-                                {% endif %}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        {% for personaje in personajes %}
+            {{ macros.render_personaje(personaje, True, False, personajes.index(personaje), idx) }}
+{#            <div class="my-card">#}
+{#                <div class="card text-white bg-dark">#}
+{#                    <div class="card-body">#}
+{#                        <h5 class="card-title text-center"#}
+{#                            style="font-weight: bold; font-size: 30px">{{ personajes[i].name.title() }}</h5>#}
+{#                        {% if personajes[i].obtain_specie() == 'Argoniano' %}#}
+{#                            <img src="{{ url_for('static', filename='images/Argoniano.png') }}" height="300vh"#}
+{#                                 class="card-img-top" alt="...">#}
+{#                        {% endif %}#}
+{#                        {% if personajes[i].obtain_specie() == 'Breton' %}#}
+{#                            <img src="{{ url_for('static', filename='images/Breton.png') }}" height="300vh"#}
+{#                                 class="card-img-top" alt="...">#}
+{#                        {% endif %}#}
+{#                        {% if personajes[i].obtain_specie() == 'Imperial' %}#}
+{#                            <img src="{{ url_for('static', filename='images/Imperial.png') }}" height="300vh"#}
+{#                                 class="card-img-top" alt="...">#}
+{#                        {% endif %}#}
+{#                        {% if personajes[i].obtain_specie() == 'Elfo' %}#}
+{#                            <img src="{{ url_for('static', filename='images/Elfo.png') }}" height="300vh"#}
+{#                                 class="card-img-top" alt="...">#}
+{#                        {% endif %}#}
+{#                        {% if personajes[i].obtain_specie() == 'Ogro' %}#}
+{#                            <img src="{{ url_for('static', filename='images/Orco.png') }}" height="300vh"#}
+{#                                 class="card-img-top" alt="...">#}
+{#                        {% endif %}#}
+{#                        <ul class="list-group list-group-flush">#}
+{#                            <li class="list-group-item bg-dark text-light text-center fw-bold">#}
+{#                                Type: {{ personajes[i].obtain_specie() }}</li>#}
+{#                            <li class="list-group-item bg-dark text-light fs-5"><img#}
+{#                                    src="https://img.icons8.com/color/48/000000/like--v3.png" width="10%"/>#}
+{#                                Health: {{ personajes[i].live }} HP#}
+{#                            </li>#}
+{#                            <li class="list-group-item bg-dark text-light fs-5"><img width="30"#}
+{#                                                                                     src="https://img.icons8.com/dusk/64/000000/armored-breastplate.png"/>#}
+{#                                Size: {{ personajes[i].size }}</li>#}
+{#                            <li class="list-group-item bg-dark text-light fs-5"><img#}
+{#                                    src="https://img.icons8.com/officel/30/000000/weight-kg.png"/>#}
+{#                                Height: {{ personajes[i].height }}</li>#}
+{#                            <li class="list-group-item bg-dark text-light fs-5"><img#}
+{#                                    src="https://img.icons8.com/color/30/000000/age-timeline.png"/>#}
+{#                                Age: {{ personajes[i].age }}#}
+{#                            </li>#}
+{#                            <li class="list-group-item bg-dark text-light fs-5"><img#}
+{#                                    src="https://img.icons8.com/office/30/000000/sword.png"/>#}
+{#                                Attack: {{ personajes[i].attack }}#}
+{#                            </li>#}
+{#                            <li class="list-group-item bg-dark text-light text-center">#}
+{#                                {% if idx == i%}#}
+{#                                    <button class="btn fs-4 seleccionar disabled" id="{{ i }}"> Personaje Acual</button>#}
+{#                                {% else %}#}
+{#                                    <a href="/{{ i }}"><button class="btn fs-4 seleccionar" id="{{ i }}"> Seleccionar Personaje {{ i + 1 }}</button></a>#}
+{#                                {% endif %}#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
         {% endfor %}
     </div>
 {% endblock %}

@@ -1,0 +1,59 @@
+{% macro render_personaje(personaje, is_selected, is_attacked, index, id_selected) %}
+    <div class="my-card">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"
+                            style="font-weight: bold; font-size: 30px">{{ personaje.name.title() }}</h5>
+                        {% if personaje.obtain_specie() == 'Argoniano' %}
+                            <img src="{{ url_for('static', filename='images/Argoniano.png') }}" height="300vh"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        {% if personaje.obtain_specie() == 'Breton' %}
+                            <img src="{{ url_for('static', filename='images/Breton.png') }}" height="300vh"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        {% if personaje.obtain_specie() == 'Imperial' %}
+                            <img src="{{ url_for('static', filename='images/Imperial.png') }}" height="300vh"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        {% if personaje.obtain_specie() == 'Elfo' %}
+                            <img src="{{ url_for('static', filename='images/Elfo.png') }}" height="300vh"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        {% if personaje.obtain_specie() == 'Ogro' %}
+                            <img src="{{ url_for('static', filename='images/Orco.png') }}" height="300vh"
+                                 class="card-img-top" alt="...">
+                        {% endif %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-dark text-light text-center fw-bold">
+                                Type: {{ personaje.obtain_specie() }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5"><img
+                                    src="https://img.icons8.com/color/48/000000/like--v3.png" width="10%"/>
+                                Health: {{ personaje.live }} HP
+                            </li>
+                            <li class="list-group-item bg-dark text-light fs-5"><img width="30"
+                                                                                     src="https://img.icons8.com/dusk/64/000000/armored-breastplate.png"/>
+                                Size: {{ personaje.size }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5"><img
+                                    src="https://img.icons8.com/officel/30/000000/weight-kg.png"/>
+                                Height: {{ personaje.height }}</li>
+                            <li class="list-group-item bg-dark text-light fs-5"><img
+                                    src="https://img.icons8.com/color/30/000000/age-timeline.png"/>
+                                Age: {{ personaje.age }}
+                            </li>
+                            <li class="list-group-item bg-dark text-light fs-5"><img
+                                    src="https://img.icons8.com/office/30/000000/sword.png"/>
+                                Attack: {{ personaje.attack }}
+                            </li>
+                            <li class="list-group-item bg-dark text-light text-center">
+                                {% if id_selected == index%}
+                                    <button class="btn fs-4 seleccionar disabled" id="{{ index }}"> Personaje Acual</button>
+                                {% else %}
+                                    <a href="/{{ index }}"><button class="btn fs-4 seleccionar" id="{{ index }}"> Seleccionar Personaje {{ index + 1 }}</button></a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+{% endmacro %}
