@@ -1,7 +1,7 @@
 {% extends "navbar.html" %} {% block content %}
 
 <form action="POST">
-  <div class="container">
+  <div class="container cont_principal">
     <div class="container blurred-bg">
       <h5 class="title-crear">¡Crea a tu personaje!</h5>
       <br />
@@ -156,6 +156,7 @@
             </div>
           </div>
         </div>
+    
         <!--Control-->
         <div class="container-fluid container-characters">
           <ul class="list-characters">
@@ -222,19 +223,69 @@
           </ul>
         </div>
       </div>
-      <br>
-      <h5 class="title-crear">Ingresa el nombre de tu personaje:</h5><br>
-  
-      <div class="form-group">
-        <label for="nombre_personaje">Nombre Del Personaje</label>
-        <input
-          type="text"
-          class="form-control"
-          name="nombre_personaje"
-          id="nombre_personaje"
-          placeholder="Ingresa el nombre"
-        />
+      <br><br><br>
+
+      <div class="container">
+        <h5 class="title-crear">Ingresa los datos de tu personaje:</h5><br>
       </div>
+      
+      <div class="container cont_ingreso_datos">
+        <input hidden type="text" class="form-control" name="raza_personaje" id="nombre_personaje">
+        <div class="form-group">
+          <label for="nombre_personaje">Nombre Del Personaje</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nombre_personaje"
+            id="nombre_personaje"
+            placeholder="Ingresa el nombre:"
+          />
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="tam_personaje">Tamaño Del Personaje</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tam_personaje"
+            id="tam_personaje"
+            placeholder="Ingresa el tamaño:"
+          />
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="altura_personaje">Altura Del Personaje</label>
+          <input
+            type="text"
+            class="form-control"
+            name="altura_personaje"
+            id="altura_personaje"
+            placeholder="Ingresa la altura:"
+          />
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="edad_personaje">Edad Del Personaje</label>
+          <input
+            type="text"
+            class="form-control"
+            name="edad_personaje"
+            id="edad_personaje"
+            placeholder="Ingresa la edad:"
+          />
+        </div>
+        <br>
+
+      </div>
+
+      <br><br>
+
+      <button type="submit" class="btn btn-primary btn_crear">Crear Personaje</button>
+
+      <br><br>
     </div>
   </div>
 </form>

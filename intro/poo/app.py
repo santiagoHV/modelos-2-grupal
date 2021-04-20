@@ -13,6 +13,8 @@ personajes_creados = [Imperial('fUmaratto', 180, 200, 19), Breton('Hurtado', 180
                       Argoniano('Santiago', 180, 200, 19), Elfo('otrohpta',180,200,50)]
 
 
+
+
 @app.route('/<int:idx>')
 def personajes(idx):
     return render_template('personajes.html', personajes=personajes_creados, optionnav='personajes', idx=idx)
