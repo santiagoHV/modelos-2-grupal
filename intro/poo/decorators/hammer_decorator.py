@@ -4,8 +4,8 @@ class HammerDecorator(CharacterDecorator):
 
     def __init__(self, character):
         self.character = character
-        self.character.live = self.character.live * 1.1
-        self.character.attack = self.character.attack * 2
+        self.character.live += 100
+        self.character.attack += 500
 
     def is_attacked(self, attack_comming):
         return self.character.is_attacked(attack_comming)

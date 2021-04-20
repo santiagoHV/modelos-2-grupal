@@ -76,6 +76,7 @@ body::-webkit-scrollbar-thumb:active {
     display: flex;
     justify-content: space-around;
     background-color: #212529;
+    padding: 10px;
 }
 .armour-character img{
     width: 40px;

@@ -12,7 +12,7 @@ from intro.poo.factory.fabricas import FabricaPersonaje
 
 app = Flask(__name__)
 personajes_creados = [Imperial('fUmaratto', 180, 200, 19), Breton('Hurtado', 180, 200, 19),
-                      Argoniano('Santiago', 180, 200, 19), Elfo('otrohpta', 180, 200, 50)]
+                      Argoniano('Santiago', 180, 200, 19)]
 
 
 app.config['SECRET_KEY'] = 'sdasfasf'
