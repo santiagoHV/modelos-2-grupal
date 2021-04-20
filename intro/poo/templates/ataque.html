@@ -8,9 +8,9 @@
                 <h2>Personaje seleccionado</h2>
                 {{ macros.render_personaje(personajes[idx],False,False,idx,idx) }}
                 <div class="armour-character dark">
-                    <a href="/decorar/martillo/{{ idx }}"><button><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Tm6PGgKVrbqeoGFasKtA-RJthRIDlM0tvQ&usqp=CAU" /></button></a>
-                    <a href="/decorar/casco/{{ idx }}"><button><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Tm6PGgKVrbqeoGFasKtA-RJthRIDlM0tvQ&usqp=CAU" /></a>
-                    <a href="/decorar/armadura/{{ idx }}"><button><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Tm6PGgKVrbqeoGFasKtA-RJthRIDlM0tvQ&usqp=CAU" /></a>
+                    <a href="/decorar/martillo/{{ idx }}"><button><img src="{{ url_for('static', filename='images/SVGs/mallet.svg') }}" /></button></a>
+                    <a href="/decorar/casco/{{ idx }}"><button><img src="{{ url_for('static', filename='images/SVGs/Knight-helmet.svg') }}" /></a>
+                    <a href="/decorar/armadura/{{ idx }}"><button><img src="{{ url_for('static', filename='images/SVGs/shield.svg') }}" /></a>
                 </div>
             </div>
             <div class="col-md-8">
