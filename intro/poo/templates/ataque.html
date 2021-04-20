@@ -18,7 +18,7 @@
                 <div class="card-carousel personajes">
                     {% for personaje in personajes %}
                         {% if personajes.index(personaje) !=  idx %}
-                            {{ macros.render_personaje(personaje, False, True, personajes.index(personaje), idx) }}
+                            {{ macros.render_personaje(personaje, False, True, personajes.index(personaje), idx, personaje in personajes[idx].aliados) }}
                         {% endif %}
                     {% endfor %}
                 </div>

@@ -12,8 +12,28 @@ from intro.poo.factory.fabricas import FabricaPersonaje
 
 app = Flask(__name__)
 personajes_creados = [Imperial('fUmaratto', 180, 200, 19), Breton('Hurtado', 180, 200, 19),
-                      Argoniano('Santiago', 180, 200, 19), Elfo('otrohpta',180,200,50)]
+                      Argoniano('Santiago', 180, 200, 19), Elfo('otrohpta', 180, 200, 50)]
 
+
+def aliarse_grupo(p1, p2):
+    p1.add_aliado(p2)
+    p2.add_aliado(p1)
+    for aliado in p2.aliados:
+        if (aliado not in p1.aliados):
+            aliarse_grupo(p1, aliado)
+    for aliado in p1.aliados:
+        if (aliado not in p2.aliados):
+            aliarse_grupo(p2, aliado)
+
+def romper_alianza_grupo(p2, p1):
+    p1.remove_aliado(p2)
+    p2.remove_aliado(p1)
+    for aliado in p2.aliados:
+        if (aliado in p1.aliados):
+            romper_alianza_grupo(aliado, p1)
+    for aliado in p1.aliados:
+        if (aliado in p2.aliados):
+            romper_alianza_grupo(aliado, p2)
 
 @app.route('/<int:idx>')
 def personajes(idx):
@@ -25,10 +45,10 @@ def creador(idx):
     if request.method == 'POST':
         print(request.form.get('raza_personaje'))
         personaje_creado = FabricaPersonaje(request.form.get('raza_personaje'),
-                             request.form.get('nombre_personaje'),
-                             request.form.get('tam_personaje'),
-                             request.form.get('altura_personaje'),
-                             request.form.get('edad_personaje')).personaje
+                                            request.form.get('nombre_personaje'),
+                                            request.form.get('tam_personaje'),
+                                            request.form.get('altura_personaje'),
+                                            request.form.get('edad_personaje')).personaje
         personajes_creados.append(personaje_creado)
         print(personajes_creados[4].name)
     return render_template('creador.html', optionnav='creador', idx=idx)
@@ -36,12 +56,22 @@ def creador(idx):
 
 @app.route('/ataque/<int:idx>')
 def ataque(idx):
-    return render_template('ataque.html', optionnav='ataque', personajes=personajes_creados, idx = idx)
+    return render_template('ataque.html', optionnav='ataque', personajes=personajes_creados, idx=idx)
 
 
 @app.route('/ataque/<int:id_atk>/<int:id_aed>')
 def atacar_personaje(id_atk, id_aed):
     personajes_creados[id_aed].is_attacked(personajes_creados[id_atk].attack)
+    return redirect(f'/ataque/{id_atk}')
+
+
+@app.route('/aliarse/<int:id_atk>/<int:id_aed>')
+def aliarPersonaje(id_atk, id_aed):
+
+    if (personajes_creados[id_atk] in personajes_creados[id_aed].aliados):
+        romper_alianza_grupo(personajes_creados[id_aed], personajes_creados[id_atk])
+    else:
+        aliarse_grupo(personajes_creados[id_aed], personajes_creados[id_atk])
     return redirect(f'/ataque/{id_atk}')
 
 
