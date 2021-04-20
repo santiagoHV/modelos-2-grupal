@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from intro.poo.species.Elfo import Elfo
 from intro.poo.species.Breton import Breton
 from intro.poo.species.Imperial import Imperial
@@ -14,6 +14,8 @@ app = Flask(__name__)
 personajes_creados = [Imperial('fUmaratto', 180, 200, 19), Breton('Hurtado', 180, 200, 19),
                       Argoniano('Santiago', 180, 200, 19), Elfo('otrohpta', 180, 200, 50)]
 
+
+app.config['SECRET_KEY'] = 'sdasfasf'
 
 def aliarse_grupo(p1, p2):
     p1.add_aliado(p2)
@@ -43,14 +45,25 @@ def personajes(idx):
 @app.route('/creador/<int:idx>', methods=['GET', 'POST'])
 def creador(idx):
     if request.method == 'POST':
-        print(request.form.get('raza_personaje'))
-        personaje_creado = FabricaPersonaje(request.form.get('raza_personaje'),
-                                            request.form.get('nombre_personaje'),
-                                            request.form.get('tam_personaje'),
-                                            request.form.get('altura_personaje'),
-                                            request.form.get('edad_personaje')).personaje
-        personajes_creados.append(personaje_creado)
-        print(personajes_creados[4].name)
+        if not request.form.get('raza_personaje'):
+            flash('Raza no ingresada, por favor revisa la información ingresada', category='error')
+        elif not request.form.get('nombre_personaje'):
+            flash('Nombre no ingresado, por favor revisa la información ingresada', category='error')
+        elif not request.form.get('tam_personaje'):
+            flash('Tamaño no ingresado, por favor revisa la información ingresada', category='error')
+        elif not request.form.get('altura_personaje'):
+            flash('Altura no ingresada, por favor revisa la información ingresada', category='error')
+        elif not request.form.get('edad_personaje'):
+            flash('Edad no ingresada, por favor revisa la información ingresada', category='error')
+        else:
+            flash('Personaje creado con éxito ✌', category='success')
+            personaje_creado = FabricaPersonaje(request.form.get('raza_personaje'),
+                                                request.form.get('nombre_personaje'),
+                                                request.form.get('tam_personaje'),
+                                                request.form.get('altura_personaje'),
+                                                request.form.get('edad_personaje')).personaje
+            personajes_creados.append(personaje_creado)
+
     return render_template('creador.html', optionnav='creador', idx=idx)
 
 
