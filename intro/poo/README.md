@@ -33,7 +33,7 @@ Y los siguientes patrones de diseño:
 
 <ul>
     <li>Decorator</li>
-    <li>Mediator</li>
+    <li>Composite</li>
     <li>Factory Method</li>
 </ul>
 
