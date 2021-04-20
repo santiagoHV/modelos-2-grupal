@@ -5,6 +5,7 @@ from species.Ogro import Ogro
 from species.Elfo import Elfo
 from species.Imperial import Imperial
 from species.Breton import Breton
+from factory.fabricas import FabricaPersonaje
 
 class TestSpecies(unittest.TestCase):
 
@@ -47,6 +48,9 @@ class TestSpecies(unittest.TestCase):
 
         assert 2000 == imperial.live
 
+    def test_fabric(self):
+        bicho = FabricaPersonaje('Argoniano', 'Bodoque', 2, 1.20, 29).personaje
+        assert bicho.live == 3000
 
 if __name__ == "__main__":
     unittest.main()
