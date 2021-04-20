@@ -8,11 +8,11 @@ from intro.poo.decorators.armour_decorator import ArmourDecorator
 from intro.poo.decorators.helmet_decorator import HelmetDecorator
 from intro.poo.decorators.hammer_decorator import HammerDecorator
 
+from intro.poo.factory.fabricas import FabricaPersonaje
+
 app = Flask(__name__)
 personajes_creados = [Imperial('fUmaratto', 180, 200, 19), Breton('Hurtado', 180, 200, 19),
                       Argoniano('Santiago', 180, 200, 19), Elfo('otrohpta',180,200,50)]
-
-
 
 
 @app.route('/<int:idx>')
@@ -20,8 +20,17 @@ def personajes(idx):
     return render_template('personajes.html', personajes=personajes_creados, optionnav='personajes', idx=idx)
 
 
-@app.route('/creador/<int:idx>')
+@app.route('/creador/<int:idx>', methods=['GET', 'POST'])
 def creador(idx):
+    if request.method == 'POST':
+        print(request.form.get('raza_personaje'))
+        personaje_creado = FabricaPersonaje(request.form.get('raza_personaje'),
+                             request.form.get('nombre_personaje'),
+                             request.form.get('tam_personaje'),
+                             request.form.get('altura_personaje'),
+                             request.form.get('edad_personaje')).personaje
+        personajes_creados.append(personaje_creado)
+        print(personajes_creados[4].name)
     return render_template('creador.html', optionnav='creador', idx=idx)
 
 

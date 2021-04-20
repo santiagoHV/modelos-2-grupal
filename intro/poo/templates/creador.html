@@ -1,236 +1,248 @@
 {% extends "navbar.html" %} {% block content %}
 
-<form action="POST">
-  <div class="container cont_principal">
-    <div class="container blurred-bg">
-      <h5 class="title-crear">¡Crea a tu personaje!</h5>
-      <br />
-      <div class="container content-characters">
-        <div class="container slide-container">
-          <div
-            id="carouselExampleControls"
-            class="carousel vert slide"
-            data-bs-ride="carousel"
-            data-bs-interval="false"
-          >
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <!--Carta Para Mostrar a los Amiwis-->
-                <div class="card mb-3 card_present" style="max-width: 540px">
-                  <div class="row g-0 gy-0">
-                    <div class="col-md-4">
-                      <img
-                        src="{{ url_for('static', filename='images/Argoniano.png') }}"
-                        alt="..."
-                        width="100%"
-                      />
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Argoniano</h5>
-                        <p class="card-text">
-                          El Argonianos poseen un intelecto frío y están bien
-                          versados ​​en las artes mágicas, el sigilo y el uso de
-                          cuchillas. También son expertos en guerra de guerrillas,
-                          siempre acostumbrados a defender sus fronteras de
-                          invasores. A menudo sirven como exploradores y
-                          hostigadores de las fuerzas del Pacto.
-                        </p>
-                      </div>
+<div class="container cont_principal">
+  <div class="container blurred-bg">
+    <h5 class="title-crear">¡Crea a tu personaje!</h5>
+    <br />
+    <div class="container content-characters">
+      <div class="container slide-container">
+        <div
+          id="carouselExampleControls"
+          class="carousel vert slide"
+          data-bs-ride="carousel"
+          data-bs-interval="false"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <!--Carta Para Mostrar a los Amiwis-->
+              <div class="card mb-3 card_present" style="max-width: 540px">
+                <div class="row g-0 gy-0">
+                  <div class="col-md-4">
+                    <img
+                      src="{{ url_for('static', filename='images/Argoniano.png') }}"
+                      alt="..."
+                      width="100%"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Argoniano</h5>
+                      <p class="card-text">
+                        El Argonianos poseen un intelecto frío y están bien
+                        versados ​​en las artes mágicas, el sigilo y el uso de
+                        cuchillas. También son expertos en guerra de guerrillas,
+                        siempre acostumbrados a defender sus fronteras de
+                        invasores. A menudo sirven como exploradores y
+                        hostigadores de las fuerzas del Pacto.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <!--Fin de la carta para mostrar a los amiwis-->
               </div>
-              <div class="carousel-item">
-                <!--Carta Para Mostrar a los Amiwis-->
-                <div class="card mb-3 card_present" style="max-width: 540px">
-                  <div class="row g-0 gy-0">
-                    <div class="col-md-4">
-                      <img
-                        src="{{ url_for('static', filename='images/Elfo.png') }}"
-                        alt="..."
-                        width="100%"
-                      />
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Elfo</h5>
-                        <p class="card-text">
-                          Son un pueblo muy culto, conocidos por su impresionante
-                          arquitectura y sus enormes bibliotecas, historias y
-                          trabajos creativos. Tienden a ser aislacionistas,
-                          permaneciendo en gran medida dentro de la Isla
-                          Estivalia, y saliendo de ella sólo cuando perciben una
-                          gran amenaza a su patria.
-                        </p>
-                      </div>
+              <!--Fin de la carta para mostrar a los amiwis-->
+            </div>
+            <div class="carousel-item">
+              <!--Carta Para Mostrar a los Amiwis-->
+              <div class="card mb-3 card_present" style="max-width: 540px">
+                <div class="row g-0 gy-0">
+                  <div class="col-md-4">
+                    <img
+                      src="{{ url_for('static', filename='images/Elfo.png') }}"
+                      alt="..."
+                      width="100%"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Elfo</h5>
+                      <p class="card-text">
+                        Son un pueblo muy culto, conocidos por su impresionante
+                        arquitectura y sus enormes bibliotecas, historias y
+                        trabajos creativos. Tienden a ser aislacionistas,
+                        permaneciendo en gran medida dentro de la Isla
+                        Estivalia, y saliendo de ella sólo cuando perciben una
+                        gran amenaza a su patria.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <!--Fin de la carta para mostrar a los amiwis-->
               </div>
-              <div class="carousel-item">
-                <!--Carta Para Mostrar a los Amiwis-->
-                <div class="card mb-3 card_present" style="max-width: 540px">
-                  <div class="row g-0 gy-0">
-                    <div class="col-md-4">
-                      <img
-                        src="{{ url_for('static', filename='images/Breton.png') }}"
-                        alt="..."
-                        width="100%"
-                      />
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Breton</h5>
-                        <p class="card-text">
-                          Son poéticos y apasionados, como las personas que toman
-                          fácilmente el camino de la hechicería y el manejo de la
-                          espada, y que tienen los dones de la magia y la
-                          diplomacia. Parte de la sangre élfica todavía corre por
-                          sus venas, dando a los bretones una comprensión innata
-                          de la magia que los distingue de las otras razas
-                          humanas.
-                        </p>
-                      </div>
+              <!--Fin de la carta para mostrar a los amiwis-->
+            </div>
+            <div class="carousel-item">
+              <!--Carta Para Mostrar a los Amiwis-->
+              <div class="card mb-3 card_present" style="max-width: 540px">
+                <div class="row g-0 gy-0">
+                  <div class="col-md-4">
+                    <img
+                      src="{{ url_for('static', filename='images/Breton.png') }}"
+                      alt="..."
+                      width="100%"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Breton</h5>
+                      <p class="card-text">
+                        Son poéticos y apasionados, como las personas que toman
+                        fácilmente el camino de la hechicería y el manejo de la
+                        espada, y que tienen los dones de la magia y la
+                        diplomacia. Parte de la sangre élfica todavía corre por
+                        sus venas, dando a los bretones una comprensión innata
+                        de la magia que los distingue de las otras razas
+                        humanas.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <!--Fin de la carta para mostrar a los amiwis-->
               </div>
-              <div class="carousel-item">
-                <!--Carta Para Mostrar a los Amiwis-->
-                <div class="card mb-3 card_present" style="max-width: 540px">
-                  <div class="row g-0 gy-0">
-                    <div class="col-md-4">
-                      <img
-                        src="{{ url_for('static', filename='images/Imperial.png') }}"
-                        alt="..."
-                        width="100%"
-                      />
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Imperial</h5>
-                        <p class="card-text">
-                          Naturales de la civilizada y cosmopólita provincia de
-                          Cyrodiil, los imperiales son muy educados y
-                          bienhablados. También son conocidos por la disciplina y
-                          el entrenamiento de los ejércitos de sus ciudadanos.
-                        </p>
-                      </div>
+              <!--Fin de la carta para mostrar a los amiwis-->
+            </div>
+            <div class="carousel-item">
+              <!--Carta Para Mostrar a los Amiwis-->
+              <div class="card mb-3 card_present" style="max-width: 540px">
+                <div class="row g-0 gy-0">
+                  <div class="col-md-4">
+                    <img
+                      src="{{ url_for('static', filename='images/Imperial.png') }}"
+                      alt="..."
+                      width="100%"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Imperial</h5>
+                      <p class="card-text">
+                        Naturales de la civilizada y cosmopólita provincia de
+                        Cyrodiil, los imperiales son muy educados y
+                        bienhablados. También son conocidos por la disciplina y
+                        el entrenamiento de los ejércitos de sus ciudadanos.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <!--Fin de la carta para mostrar a los amiwis-->
               </div>
-              <div class="carousel-item">
-                <!--Carta Para Mostrar a los Amiwis-->
-                <div class="card mb-3 card_present" style="max-width: 540px">
-                  <div class="row g-0 gy-0">
-                    <div class="col-md-4">
-                      <img
-                        src="{{ url_for('static', filename='images/Orco.png') }}"
-                        alt="..."
-                        width="100%"
-                      />
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Orco</h5>
-                        <p class="card-text">
-                          Resistentes habitantes de las montañas, los orcos son
-                          considerados incivilizados por la mayoría de las otras
-                          razas. Sin embargo, se les reconoce como los mejores
-                          herreros de Tamriel, y las armas y armaduras orcas son
-                          muy apreciadas por los guerreros y artesanos de todo el
-                          mundo.
-                        </p>
-                      </div>
+              <!--Fin de la carta para mostrar a los amiwis-->
+            </div>
+            <div class="carousel-item">
+              <!--Carta Para Mostrar a los Amiwis-->
+              <div class="card mb-3 card_present" style="max-width: 540px">
+                <div class="row g-0 gy-0">
+                  <div class="col-md-4">
+                    <img
+                      src="{{ url_for('static', filename='images/Orco.png') }}"
+                      alt="..."
+                      width="100%"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Orco</h5>
+                      <p class="card-text">
+                        Resistentes habitantes de las montañas, los orcos son
+                        considerados incivilizados por la mayoría de las otras
+                        razas. Sin embargo, se les reconoce como los mejores
+                        herreros de Tamriel, y las armas y armaduras orcas son
+                        muy apreciadas por los guerreros y artesanos de todo el
+                        mundo.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <!--Fin de la carta para mostrar a los amiwis-->
               </div>
+              <!--Fin de la carta para mostrar a los amiwis-->
             </div>
           </div>
         </div>
-    
-        <!--Control-->
-        <div class="container-fluid container-characters">
-          <ul class="list-characters">
-            <li>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide-to="0"
-                class="character-item"
-                aria-current="true"
-                aria-label="Slide 1"
-              >
-                Argoniano
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide-to="1"
-                class="character-item"
-                aria-current="true"
-                aria-label="Slide 2"
-              >
-                Elfo
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide-to="2"
-                class="character-item"
-                aria-current="true"
-                aria-label="Slide 3"
-              >
-                Breton
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide-to="3"
-                class="character-item"
-                aria-current="true"
-                aria-label="Slide 4"
-              >
-                Imperial
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide-to="4"
-                class="character-item"
-                aria-current="true"
-                aria-label="Slide 5"
-              >
-                Orco
-              </button>
-            </li>
-          </ul>
-        </div>
       </div>
-      <br><br><br>
 
-      <div class="container">
-        <h5 class="title-crear">Ingresa los datos de tu personaje:</h5><br>
+      <!--Control-->
+      <div class="container-fluid container-characters">
+        <ul class="list-characters">
+          <li>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide-to="0"
+              class="character-item"
+              aria-current="true"
+              aria-label="Slide 1"
+              onclick="setRaza('Argoniano')"
+            >
+              Argoniano
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide-to="1"
+              class="character-item"
+              aria-current="true"
+              aria-label="Slide 2"
+              onclick="setRaza('Elfo')"
+            >
+              Elfo
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide-to="2"
+              class="character-item"
+              aria-current="true"
+              aria-label="Slide 3"
+              onclick="setRaza('Breton')"
+            >
+              Breton
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide-to="3"
+              class="character-item"
+              aria-current="true"
+              aria-label="Slide 4"
+              onclick="setRaza('Imperial')"
+            >
+              Imperial
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide-to="4"
+              class="character-item"
+              aria-current="true"
+              aria-label="Slide 5"
+              onclick="setRaza('Orco')"
+            >
+              Orco
+            </button>
+          </li>
+        </ul>
       </div>
-      
+    </div>
+    <br /><br /><br />
+
+    <div class="container">
+      <h5 class="title-crear">Ingresa los datos de tu personaje:</h5>
+      <br />
+    </div>
+
+    <form method="POST">
       <div class="container cont_ingreso_datos">
-        <input hidden type="text" class="form-control" name="raza_personaje" id="nombre_personaje">
+        <input
+          hidden
+          type="text"
+          class="form-control"
+          name="raza_personaje"
+          id="raza_personaje"
+        />
         <div class="form-group">
           <label for="nombre_personaje">Nombre Del Personaje</label>
           <input
@@ -241,7 +253,7 @@
             placeholder="Ingresa el nombre:"
           />
         </div>
-        <br>
+        <br />
 
         <div class="form-group">
           <label for="tam_personaje">Tamaño Del Personaje</label>
@@ -253,7 +265,7 @@
             placeholder="Ingresa el tamaño:"
           />
         </div>
-        <br>
+        <br />
 
         <div class="form-group">
           <label for="altura_personaje">Altura Del Personaje</label>
@@ -265,7 +277,7 @@
             placeholder="Ingresa la altura:"
           />
         </div>
-        <br>
+        <br />
 
         <div class="form-group">
           <label for="edad_personaje">Edad Del Personaje</label>
@@ -277,19 +289,18 @@
             placeholder="Ingresa la edad:"
           />
         </div>
-        <br>
-
+        <br />
       </div>
 
-      <br><br>
+      <br /><br />
 
-      <button type="submit" class="btn btn-primary btn_crear">Crear Personaje</button>
+      <button type="submit" class="btn btn-primary btn_crear">
+        Crear Personaje
+      </button>
 
-      <br><br>
-    </div>
+      <br /><br />
+    </form>
   </div>
-</form>
-
-
+</div>
 
 {% endblock %}

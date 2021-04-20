@@ -16,7 +16,7 @@ class FabricaPersonaje:
             return Elfo(name, size, height, age)
         elif specie == 'Imperial':
             return Imperial(name, size, height, age)
-        elif specie == 'Ogro':
+        elif specie == 'Orco':
             return Ogro(name, size, height, age)
 
     def __init__(self, specie, name, size, height, age):
